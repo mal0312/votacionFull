@@ -1,0 +1,16 @@
+{
+  "name": "ethereum_voting_dapp",
+  "version": "1.0.0",
+  "description": "sistema de votacion",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ganache-cli": "^6.12.2",
+    "solc": "^0.6.4",
+    "web3": "^1.2.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node_modules/.bin/testrpc"
+  }
+}
