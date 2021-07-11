@@ -9,35 +9,26 @@
 <body class="container">
  <h1>Sistema de votacion</h1>
  <div class="table-responsive">
-  <table class="table table-bordered">
+  <table id="candidatesTable" class="table table-bordered">
    <thead>
     <tr>
      <th>Candidate</th>
      <th>Votes</th>
     </tr>
    </thead>
-   <tbody>
-    <tr>
-     <td>Rama</td>
-     <td id="candidate-1"></td>
-    </tr>
-    <tr>
-     <td>Nick</td>
-     <td id="candidate-2"></td>
-    </tr>
-    <tr>
-     <td>Jose</td>
-     <td id="candidate-3"></td>
-    </tr>
+   <tbody id="candidatesBody">
+    <!-- Traigo todos candidatos de la lista y sus IDs -->
    </tbody>
   </table>
  </div>
+ <h4>Realice su voto</h4>
  <input type="text" id="candidate" />
  <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
 </body>
 
-<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.6/dist/web3.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
-<!--<script src="./server.js"></script>-->
-<script src="./index.js"></script>  
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.6/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
+    <!--script src="./server.js"></script-->
+    <script src="./index.js"></script>
+    <script src="./utils.js"></script>
 </html>

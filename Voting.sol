@@ -44,5 +44,6 @@ contract Voting {
     }
     return false;
   }
+
 }
 

@@ -6,6 +6,8 @@ web3.eth.getAccounts().then((f) => {
 })
 var contratoActual
 var contract
+var candidateCounter = 3;
+
 abi = JSON.parse('[{"inputs":[{"internalType":"bytes32[]","name":"candidateNames","type":"bytes32[]"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"candidateList","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32","name":"candidate","type":"bytes32"}],"name":"totalVotesFor","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32","name":"candidate","type":"bytes32"}],"name":"validCandidate","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32","name":"candidate","type":"bytes32"}],"name":"voteForCandidate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"name":"votesReceived","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]')
 
 candidates = {"Rama": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3"}
@@ -49,11 +51,16 @@ fetch('contract.bin')
     console.log(candidateName);
    
     contract.methods.voteForCandidate(web3.utils.asciiToHex(candidateName)).send({from: account}).then((f) => {
-     let div_id = candidates[candidateName];
-     contract.methods.totalVotesFor(web3.utils.asciiToHex(candidateName)).call().then((f) => {
-      $("#" + div_id).html(f);
-     })
+      let div_id = candidates[candidateName];
+      contract.methods.totalVotesFor(web3.utils.asciiToHex(candidateName)).call().then((f) => {
+        $("#" + div_id).html(f);
+      })
     })
    }
 //contract.options.address = "/contract.bin"
 // update this contract address with your contract address
+
+  // función que trae los candidatos disponibles para votar.
+  function getCandidates() {
+    return candidates;
+  }
