@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
- <title>Grupo Ethereum2</title>
- <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700' rel='stylesheet' type='text/css'>
- <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link rel ="stylesheet" href = "css/style.css"></link>
+    <head>
+    <title>Grupo Ethereum2</title>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 
-</head>
-<body class="container">
- <h1>Sistema de votación</h1>
- <h4>Identifíquese</h4>
- <select id="wallets" onchange="selectWallet()"></select>
- <h4>Resultados</h4>
- <div class="table-responsive">
-  <table id="candidatesTable" class="table table-bordered">
-   <thead>
-    <tr>
-     <th>Candidate</th>
-     <th>Votes</th>
-    </tr>
-   </thead>
-   <tbody id="candidatesBody">
-    <!-- Traigo todos candidatos de la lista y sus IDs -->
-   </tbody>
-  </table>
- </div>
- <h4>Realice su voto</h4>
- <input type="text" id="candidate" />
- <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
-</body>
+    </head>
+    <body class="container">
+    <h1>Sistema de votación</h1>
+    <h4>Identifíquese</h4>
+    <select id="wallets" onchange="selectWallet()" class="styled-box"></select>
+    <h4>Resultados</h4>
+    <div class="table-responsive">
+    <table id="candidatesTable" class="styled-table">
+    <thead>
+        <tr>
+        <th>Candidate</th>
+        <th>Votes</th>
+        </tr>
+    </thead>
+    <tbody id="candidatesBody">
+        <!-- Traigo todos candidatos de la lista y sus IDs -->
+    </tbody>
+    </table>
+    </div>
+    <h4>Realice su voto</h4>
+    <input type="text" id="candidate" class="styled-input"/>
+    <a href="#" onclick="voteForCandidate()" class="styled-button">Vote</a>
+    </body>
 
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.6/dist/web3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
