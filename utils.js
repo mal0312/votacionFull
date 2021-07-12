@@ -5,9 +5,9 @@ function* iterate_object(o) {
     }
 }
   
-function loadTableData(items) {
+async function loadTableData() {
+    let items = await getCandidates();
     let table = document.getElementById("candidatesBody");
-
     for (var [key, val] of iterate_object(items)) {
         let row = table.insertRow();
         let candidate = row.insertCell(0);
@@ -17,4 +17,16 @@ function loadTableData(items) {
     }
 }
 
-loadTableData(getCandidates());
+async function loadWalletSelector() {
+    let items = await getWallets();
+
+    var wallets_selector = document.getElementById("wallets");
+    for(var i = 0; i < items.length; i++) {
+       var option = document.createElement('option');
+       option.text = option.value = items[i];
+       wallets_selector.add(option, 0);
+    }
+}
+
+loadTableData();
+loadWalletSelector();
