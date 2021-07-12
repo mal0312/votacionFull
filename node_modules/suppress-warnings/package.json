@@ -1,0 +1,32 @@
+{
+  "name": "suppress-warnings",
+  "version": "1.0.2",
+  "description": "Customizable suppression of node warnings.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "npm run build && node test/main.js",
+    "test-ts": "ts-node test/main.ts",
+    "build": "rm -rf build && tsc && echo Build Finished.",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DonovanDMC/Suppress-Warnings.git"
+  },
+  "keywords": [
+    "suppress-warnings",
+    "warnings",
+    "suppress",
+    "suppression",
+    "warn",
+    "deprecation",
+    "suppress-deprecation"
+  ],
+  "author": "Donovan_DMC <dwddaniels262@gmail.com> (https://furry.cool)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DonovanDMC/Suppress-Warnings/issues"
+  },
+  "homepage": "https://furry.cool"
+}

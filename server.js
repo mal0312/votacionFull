@@ -1,4 +1,3 @@
-
 var express = require('express');
 fs = require ('fs')
 Web3 = require( 'web3')
@@ -21,15 +20,15 @@ async function waitForAccounts() {
   deployedContract = new web3.eth.Contract(abi,addressContractCreator)
   listOfCandidates = fs.readFileSync('files/candidates.txt').toString().split("\n");
  
-  console.log(listOfCandidates);
+  console.log("Lista de candidatos: " + listOfCandidates);
 
-  deployedContract.deploy({
+  await deployedContract.deploy({
     data: bytecode,
     arguments: [listOfCandidates.map(name => web3.utils.asciiToHex(name))]
   }).send({
     from:addressContractCreator,
     gas: 1500000,
-    gasPrice: web3.utils.toWei('0.00003','ether')
+    gasPrice: await web3.utils.toWei('0.00003','ether')
   }).then((newContractInstance) => {
     deployedContract.options.address = newContractInstance.options.address
   addressContract = newContractInstance.options.address //me guardo la direccion del contrato para guardarla en un file y abrirla en el index.
@@ -50,20 +49,6 @@ async function waitForAccounts() {
 }
 
 waitForAccounts();
-
-
-
-
-/*
-fs.writeFile("files/wallet_addresses.txt", wallet_accounts, (err) => {
-  if (err)
-    console.log(err);
-  else {
-    console.log("File written successfully\n");
-    console.log("The written has the following contents:");
-    console.log(fs.readFileSync("files/wallet_addresses.txt", "utf8"));
-  }
-});*/
 
 app.listen('3500');
 console.log('Running at\n http://localhost:3500')
